@@ -1,18 +1,21 @@
-function getfile(file,callback) {
-  var xhr = new XMLHttpRequest();
-  xhr.overrideMimeType("application/json");
-  xhr.open("GET",file,true);
-  xhr.onreadystatechange = function(){
-    if(xhr.readyState === 4 && xhr.status == "200"){
-      callback(xhr.responseText);
-    }
-  };
-  xhr.send(null);
-}
-getfile("data.json",function(text){
-  let data = JSON.parse(text);
-  console.log(data);
-  basicinfo(data.basics);
+function getfile(file,callback){
+   var xhr=new XMLHttpRequest();
+   xhr.overrideMimeType("application/json");
+   xhr.open("GET",file,true);
+   xhr.onreadystatechange=function(){
+     if (xhr.readyState === 4 && xhr.status == "200") {
+       callback(xhr.responseText);
+     }
+   };
+   xhr.send(null);
+ }
+
+ getfile("data.json",function(text){
+ let data=JSON.parse(text);
+ console.log(data);
+ basicinfo(data.basics);
+ eduinfo(data.education);
+ skills(data.skills);
 });
 
 function basicinfo(basics){
@@ -28,8 +31,8 @@ function basicinfo(basics){
   mobile.innerHTML=basics.phone;
   first_child.appendChild(mobile);
   var mail=document.createElement("a");
-  mail.href="mailto:surya@gmail.com";
-  mail.innerHTML=basics.email;
+  mail.href="mailto:uday.cse2943@gmail.com";
+  mail.textContent=basics.email;
   first_child.appendChild(mail);
   var ad = document.createElement("p");
   ad.textContent="Address";
@@ -42,4 +45,47 @@ function basicinfo(basics){
   // address.style.fontSize="20px";
   address.textContent=basics.Address;
   first_child.appendChild(address);
+}
+var second_child = document.querySelector(".content")
+
+function eduinfo(edu) {
+
+
+  var ed = document.createElement("h2");
+  ed.textContent="education:";
+  ed.style.textDecoration = "underline";
+  second_child.appendChild(ed);
+  for(var i=0; i<edu.length; i++)
+  {
+    // console.log(edu[i].course);
+    var course = document.createElement("p");
+    course.innerHTML=edu[i].course;
+    second_child.appendChild(course);
+
+    var college = document.createElement("p");
+    college.textContent=edu[i].institute;
+    second_child.appendChild(college);
+
+   var ul =document.createElement("ul");
+   second_child.appendChild(ul);
+   // console.log(edu[i].data.length);
+    for(j=0;j<edu[i].data.length;j++){
+var li =document.createElement("li");
+li.textContent=edu[i].data[j];
+ul.appendChild(li);
+    }
+    var h2 = document.createElement("hr");
+    second_child.appendChild(h2);
+  }
+}
+function skills(skill){
+  // console.log(skill.Languages.length);
+  var table=document.createElement("table");
+  table.border="1";
+  var row="";
+  for(var k=0;k<skill.length;k++){
+    row+="<tr><td><strong>"+skill[k].name+"</strong></td><td>"+skill[k].data+"</td></tr>";
+  }
+  table.innerHTML=row;
+  second_child.appendChild(table);
 }
