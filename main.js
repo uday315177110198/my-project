@@ -89,3 +89,4 @@ function skills(skill){
   table.innerHTML=row;
   second_child.appendChild(table);
 }
+
