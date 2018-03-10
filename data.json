@@ -5,5 +5,38 @@
     "phone":"9866175973",
     "email":"uday.cse2943@gmail.com",
     "Address":"s/o Jalachandrudu,Avanigadda"
+  },
+
+"education" :[{
+      "course":"B.Tech(computer science and engineering)",
+      "institute":"CR Reddy Engineering college",
+    "data":["2015-2019","90%"]
+
+    },
+    {
+      "course":"DIPLOMA(Computer Engineering)",
+      "institute":"DIVISEEMA Polytechnic College",
+      "data":["2013-2015","92%"]
+
+    },
+    {
+    "course":"SSC",
+    "institute":"St.Thomas English Medium High School",
+  "data":["2012-2013","92%"]
+}
+],
+      "skills":[
+        {
+        "name":"Languages",
+        "data":["C","JAVA","php"]
+      },
+      {
+      "name":"Web Technologies",
+      "data":["HTML","CSS","php"]
+    },
+    {
+    "name":"OS",
+    "data":["Windows","Linux","Unix"]
   }
+    ]
 }
